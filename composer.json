@@ -1,5 +1,5 @@
 {
-    "name": "dataexchangeedu/laravel-api-sifuk20",
+    "name": "dataexchangeedu/laravel-data-api-sifuk20",
     "description": "A Laravel wrapper for dataexchangeedu/php-api-sifuk20",
     "keywords": ["education", "sif", "sifuk20", "laravel", "DataExchange", "zinethq"],
     "license": "MIT",
