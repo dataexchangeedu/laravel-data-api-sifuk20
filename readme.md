@@ -1,8 +1,8 @@
-# DataExchangeApi
+# DataExchange SIF UK 2.0 Api for Laravel
 
 [![Laravel 5.3](https://img.shields.io/badge/Laravel-5.3-orange.svg?style=flat-square)](http://laravel.com)
-[![Source](http://img.shields.io/badge/source-dataexchangeedu/laravel--php--data--api--sifuk20-blue.svg?style=flat-square)](https://github.com/dataexchangeedu/laravel-php-data-api-sifuk20)
-[![Build Status](https://travis-ci.org/dataexchangeedu/laravel-php-data-api-sifuk20.svg?branch=master)](https://travis-ci.org/dataexchangeedu/laravel-php-data-api-sifuk20)
+[![Source](http://img.shields.io/badge/source-dataexchangeedu/laravel--data--api--sifuk20-blue.svg?style=flat-square)](https://github.com/dataexchangeedu/laravel-data-api-sifuk20)
+[![Build Status](https://travis-ci.org/dataexchangeedu/laravel-data-api-sifuk20.svg?branch=master)](https://travis-ci.org/dataexchangeedu/laravel-data-api-sifuk20)
 [![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://tldrlegal.com/license/mit-license)
 
 DataExchangeApi provides a simple Laravel wrapper (facade) around the dataexchangeedu/php-data-api-sifuk20 library for use against DataExchange ([dataexchange.education](https://dataexchange.education)).
@@ -12,7 +12,7 @@ DataExchangeApi provides a simple Laravel wrapper (facade) around the dataexchan
 1. Install the package through Composer.
 
     ```bash
-    composer require dataexchangeedu/laravel-php-data-api-sifuk20
+    composer require dataexchangeedu/laravel-data-api-sifuk20
     ```
 
 1. Add the service provider to your project's `config/app.php` file.
