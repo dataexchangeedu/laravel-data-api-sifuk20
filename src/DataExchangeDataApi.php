@@ -24,6 +24,11 @@ class DataExchangeDataApi
         }
     }
 
+    public function getApiInstance()
+    {
+        return $this->api;
+    }
+
     public function __call($method, $arguments)
     {
         return call_user_func_array([ $this->api, $method ], $arguments);
