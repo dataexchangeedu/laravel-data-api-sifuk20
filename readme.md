@@ -18,13 +18,13 @@ DataExchangeDataApi provides a simple Laravel wrapper (facade) around the dataex
 1. Add the service provider to your project's `config/app.php` file.
 
     ```php
-    ZiNETHQ\DataExchange\Data\Api\SifUk20\DataExchangeDataApiServiceProvider::class,
+    DataExchange\Data\Api\SifUk20\DataExchangeDataApiServiceProvider::class,
     ```
 
 1. Publish the configuration, models, and migrations into your project.
 
     ```bash
-    php artisan vendor:publish --provider="ZiNETHQ\DataExchange\Data\Api\SifUk20\DataExchangeDataApiServiceProvider"
+    php artisan vendor:publish --provider="DataExchange\Data\Api\SifUk20\DataExchangeDataApiServiceProvider"
     ```
 
 1. Set your connection settings in `config\dataexchange-data-api.php`.

@@ -26,7 +26,7 @@
     },
     "autoload": {
         "psr-4": {
-            "ZiNETHQ\\DataExchange\\Data\\Api\\SifUk20\\": "src/"
+            "DataExchange\\Data\\Api\\SifUk20\\": "src/"
         }
     },
     "extra": {

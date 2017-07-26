@@ -1,6 +1,6 @@
 <?php
 
-namespace ZiNETHQ\DataExchange\Data\Api\SifUk20;
+namespace DataExchange\Data\Api\SifUk20;
 
 use DataExchange\SIFUK20\Configuration;
 use DataExchange\SIFUK20\DataExchangeApi;

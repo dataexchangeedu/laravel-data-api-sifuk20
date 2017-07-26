@@ -1,12 +1,12 @@
 <?php
-namespace ZiNETHQ\DataExchange\Data\Api\SifUk20;
+namespace DataExchange\Data\Api\SifUk20;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 use Carbon\Carbon;
 
-use ZiNETHQ\DataExchange\Data\Api\SifUk20\DataExchangeDataApi;
+use DataExchange\Data\Api\SifUk20\DataExchangeDataApi;
 
 class DataExchangeDataApiServiceProvider extends ServiceProvider
 {

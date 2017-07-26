@@ -1,8 +1,8 @@
 <?php
-namespace ZiNETHQ\DataExchange\Data\Api\SifUk20\Facades;
+namespace DataExchange\Data\Api\SifUk20\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use ZiNETHQ\DataExchange\Data\Api\SifUk20\DataExchangeDataApi as DXDataApi;
+use DataExchange\Data\Api\SifUk20\DataExchangeDataApi as DXDataApi;
 
 class DataExchangeDataApi extends Facade
 {
