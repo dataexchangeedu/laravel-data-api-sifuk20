@@ -1,11 +1,11 @@
 <?php
 
-namespace DataExchange\Data\Api\SifUk20;
+namespace DataExchange\Laravel\SIFUK20;
 
 use DataExchange\SIFUK20\Configuration;
-use DataExchange\SIFUK20\DataExchangeApi;
+use DataExchange\SIFUK20\DataExchangeApi as DXApi;
 
-class DataExchangeDataApi
+class DataExchangeApi
 {
     protected $api;
 
@@ -14,7 +14,7 @@ class DataExchangeDataApi
         Configuration::getDefaultConfiguration()->setApiKey('Authorization', config('dataexchange-data-api.token'));
         Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
-        $this->api = new DataExchangeApi();
+        $this->api = new DXApi();
 
         $url = config('dataexchange-data-api.url');
         if ($url) {

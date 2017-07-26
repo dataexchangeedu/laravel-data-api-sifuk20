@@ -1,14 +1,12 @@
 <?php
-namespace DataExchange\Data\Api\SifUk20;
+namespace DataExchange\Laravel\SIFUK20;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
-use Carbon\Carbon;
+use DataExchange\Laravel\SIFUK20\DataExchangeApi;
 
-use DataExchange\Data\Api\SifUk20\DataExchangeDataApi;
-
-class DataExchangeDataApiServiceProvider extends ServiceProvider
+class DataExchangeApiServiceProvider extends ServiceProvider
 {
     /**
      * Indicates of loading of the provider is deferred.
@@ -41,8 +39,8 @@ class DataExchangeDataApiServiceProvider extends ServiceProvider
             'dataexchange-data-api'
         );
 
-        $this->app->singleton(DataExchangeDataApi::class, function ($app) {
-            return new DataExchangeDataApi();
+        $this->app->singleton(DataExchangeApi::class, function ($app) {
+            return new DataExchangeApi();
         });
 
         $this->commands($this->commands);
@@ -67,6 +65,6 @@ class DataExchangeDataApiServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return [DataExchangeDataApi::class];
+        return [DataExchangeApi::class];
     }
 }

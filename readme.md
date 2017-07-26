@@ -1,11 +1,11 @@
-# DataExchangeDataApi
+# DataExchangeApi
 
 [![Laravel 5.3](https://img.shields.io/badge/Laravel-5.3-orange.svg?style=flat-square)](http://laravel.com)
 [![Source](http://img.shields.io/badge/source-dataexchangeedu/laravel--php--data--api--sifuk20-blue.svg?style=flat-square)](https://github.com/dataexchangeedu/laravel-php-data-api-sifuk20)
 [![Build Status](https://travis-ci.org/dataexchangeedu/laravel-php-data-api-sifuk20.svg?branch=master)](https://travis-ci.org/dataexchangeedu/laravel-php-data-api-sifuk20)
 [![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://tldrlegal.com/license/mit-license)
 
-DataExchangeDataApi provides a simple Laravel wrapper (facade) around the dataexchangeedu/php-data-api-sifuk20 library for use against DataExchange ([dataexchange.education](https://dataexchange.education)).
+DataExchangeApi provides a simple Laravel wrapper (facade) around the dataexchangeedu/php-data-api-sifuk20 library for use against DataExchange ([dataexchange.education](https://dataexchange.education)).
 
 ## Quick Installation
 
@@ -18,13 +18,13 @@ DataExchangeDataApi provides a simple Laravel wrapper (facade) around the dataex
 1. Add the service provider to your project's `config/app.php` file.
 
     ```php
-    DataExchange\Data\Api\SifUk20\DataExchangeDataApiServiceProvider::class,
+    DataExchange\Laravel\SIFUK20\DataExchangeApiServiceProvider::class,
     ```
 
 1. Publish the configuration, models, and migrations into your project.
 
     ```bash
-    php artisan vendor:publish --provider="DataExchange\Data\Api\SifUk20\DataExchangeDataApiServiceProvider"
+    php artisan vendor:publish --provider="DataExchange\Laravel\SIFUK20\DataExchangeApiServiceProvider"
     ```
 
 1. Set your connection settings in `config\dataexchange-data-api.php`.
@@ -34,13 +34,13 @@ DataExchangeDataApi provides a simple Laravel wrapper (facade) around the dataex
     ```PHP
     <?php
 
-    use DataExchangeDataApi;
+    use DataExchangeApi;
     use Exception;
 
     ...
 
     try {
-        dd(DataExchangeDataApi->getSchoolInfos());
+        dd(DataExchangeApi->getSchoolInfos());
     } catch (Exception $ex) {
         dd($ex);
     }

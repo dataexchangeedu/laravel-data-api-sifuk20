@@ -1,5 +1,5 @@
 {
-    "name": "dataexchangeedu/laravel-php-api-sifuk20",
+    "name": "dataexchangeedu/laravel-api-sifuk20",
     "description": "A Laravel wrapper for dataexchangeedu/php-api-sifuk20",
     "keywords": ["education", "sif", "sifuk20", "laravel", "DataExchange", "zinethq"],
     "license": "MIT",
@@ -26,7 +26,7 @@
     },
     "autoload": {
         "psr-4": {
-            "DataExchange\\Data\\Api\\SifUk20\\": "src/"
+            "DataExchange\\Laravel\\SIFUK20\\": "src/"
         }
     },
     "extra": {

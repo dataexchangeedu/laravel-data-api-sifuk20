@@ -1,10 +1,10 @@
 <?php
-namespace DataExchange\Data\Api\SifUk20\Facades;
+namespace DataExchange\Laravel\SIFUK20\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use DataExchange\Data\Api\SifUk20\DataExchangeDataApi as DXDataApi;
+use DataExchange\Laravel\SIFUK20\DataExchangeApi as DXApi;
 
-class DataExchangeDataApi extends Facade
+class DataExchangeApi extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -13,6 +13,6 @@ class DataExchangeDataApi extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return DXDataApi::class;
+        return DXApi::class;
     }
 }
