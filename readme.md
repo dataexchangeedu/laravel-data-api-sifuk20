@@ -18,7 +18,21 @@ DataExchangeApi provides a simple Laravel wrapper (facade) around the dataexchan
 1. Add the service provider to your project's `config/app.php` file.
 
     ```php
-    DataExchange\Laravel\SIFUK20\DataExchangeApiServiceProvider::class,
+    'providers' => [
+        ...
+        DataExchange\Laravel\SIFUK20\DataExchangeApiServiceProvider::class,
+        ...
+    ],
+    ```
+
+1. Add the Facade to your project `config/app.php` file.
+
+    ```php
+    'aliases' => [
+        ...
+        'DataExchangeApi' => DataExchange\Laravel\SIFUK20\Facades\DataExchangeApi::class,
+        ...
+    ],
     ```
 
 1. Publish the configuration, models, and migrations into your project.
