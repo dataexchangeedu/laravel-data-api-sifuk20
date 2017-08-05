@@ -3,7 +3,7 @@
     "description": "A Laravel wrapper for dataexchangeedu/php-api-sifuk20",
     "keywords": ["education", "sif", "sifuk20", "laravel", "DataExchange", "zinethq"],
     "license": "MIT",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "authors": [{
             "name": "Jon Nicholson",
             "email": "jon.nicholson@zinethq.com",

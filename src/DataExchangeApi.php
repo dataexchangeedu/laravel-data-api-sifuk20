@@ -12,7 +12,7 @@ class DataExchangeApi
 
     public function on($connection)
     {
-        if (!is_set($this->connections[$connection])) {
+        if (!isset($this->connections[$connection])) {
             $this->connections[$connection] = new Connection($connection);
         }
 
