@@ -19,13 +19,13 @@ class DataExchangeApiConnection
         $this->mths = array_keys(get_class_methods(DataExchangeApi::class));
 
         if (is_null($connection) || $connection == 'default') {
-            $connection = config('dataexchange-data-api.default');
+            $connection = config('dataexchange-data-api.default.connection');
         }
 
         $config = array_merge([
             'zone_id' => '',
-            'url' => null,
-            'token' => '',
+            'url' => config('dataexchange-data-api.default.url', null),
+            'token' => config('dataexchange-data-api.default.token'),
         ], config("dataexchange-data-api.connections.{$connection}", []));
 
         Configuration::getDefaultConfiguration()->setApiKey('Authorization', $config['token']);
