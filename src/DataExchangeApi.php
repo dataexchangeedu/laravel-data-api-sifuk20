@@ -3,34 +3,34 @@
 namespace DataExchange\Laravel\SIFUK20;
 
 use DataExchange\SIFUK20\Configuration;
-use DataExchange\SIFUK20\DataExchangeApi as DXApi;
+use DataExchange\SIFUK20\DataExchangeApiConnection as Connection;
 
 class DataExchangeApi
 {
-    protected $api;
+    const DEFAULT_CONNECTION = 'default';
+    protected $connections = [];
 
-    public function __construct()
+    public function on($connection)
     {
-        Configuration::getDefaultConfiguration()->setApiKey('Authorization', config('dataexchange-data-api.token'));
-        Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-        $this->api = new DXApi();
-
-        $url = config('dataexchange-data-api.url');
-        if ($url) {
-            $client = $this->api->getApiClient();
-            $config = $client->getConfig();
-            $config->setHost($url);
+        if (!is_set($this->connections[$connection])) {
+            $this->connections[$connection] = new Connection($connection);
         }
-    }
 
-    public function getApiInstance()
-    {
-        return $this->api;
+        return $this->connections[$connection];
     }
 
     public function __call($method, $arguments)
     {
-        return call_user_func_array([ $this->api, $method ], $arguments);
+        return call_user_func_array([ $this->on(self::DEFAULT_CONNECTION), $method ], $arguments);
+    }
+
+    public function __get($name)
+    {
+        return $this->on(self::DEFAULT_CONNECTION)->{$name};
+    }
+
+    public function __set($name, $value)
+    {
+        $this->on(self::DEFAULT_CONNECTION)->{$name} = $value;
     }
 }
