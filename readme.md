@@ -61,3 +61,10 @@ DataExchangeApi provides a simple Laravel wrapper (facade) around the dataexchan
 
     ...
     ```
+
+    Different ways to call the same thing (assuming `ZONEID` is in connection `school`, which is the default connection):
+    - `DataExchangeApi::getSchoolInfos(); // Implicitly use the default connection`
+    - `DataExchangeApi::on(null)->getSchoolInfos(); // Implicitly use the default connection`
+    - `DataExchangeApi::on('default')->getSchoolInfos(); // Explicitly use the default connection`
+    - `DataExchangeApi::on('school')->getSchoolInfos(); // Explicitly use the school connection`
+    - `DataExchangeApi::getApiInstance()->getSchoolInfos('ZONEID'); // Talk directly using the wrapped API`
