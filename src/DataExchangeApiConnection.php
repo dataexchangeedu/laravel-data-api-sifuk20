@@ -18,7 +18,7 @@ class DataExchangeApiConnection
         $this->vars = array_keys(get_class_vars(DataExchangeApi::class));
         $this->mths = array_keys(get_class_methods(DataExchangeApi::class));
 
-        if (is_null($connection)) {
+        if (is_null($connection) || $connection == 'default') {
             $connection = config('dataexchange-data-api.default');
         }
 
@@ -26,7 +26,7 @@ class DataExchangeApiConnection
             'zone_id' => '',
             'url' => null,
             'token' => '',
-        ], config("dataexchange-data-api.connections{$connection}"));
+        ], config("dataexchange-data-api.connections.{$connection}", []));
 
         Configuration::getDefaultConfiguration()->setApiKey('Authorization', $config['token']);
         Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
@@ -35,8 +35,7 @@ class DataExchangeApiConnection
 
         if ($config['url']) {
             $client = $this->api->getApiClient();
-            $config = $client->getConfig();
-            $config->setHost($config['url']);
+            $client->getConfig()->setHost($config['url']);
         }
 
         $this->zoneId = $config['zone_id'];
@@ -54,7 +53,7 @@ class DataExchangeApiConnection
 
     public function __call($method, $arguments)
     {
-        if (in_array($name, $this->mths)) {
+        if (in_array($method, $this->mths)) {
             return call_user_func_array([ $this->api, $method ], array_merge([
                 $this->zoneId
             ], $arguments));
