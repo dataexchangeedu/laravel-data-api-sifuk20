@@ -54,7 +54,7 @@ DataExchangeApi provides a simple Laravel wrapper (facade) around the dataexchan
     ...
 
     try {
-        dd(DataExchangeApi::getSchoolInfos());
+        dd(DataExchangeApi::on('default')->getSchoolInfos(););
     } catch (Exception $ex) {
         dd($ex);
     }
