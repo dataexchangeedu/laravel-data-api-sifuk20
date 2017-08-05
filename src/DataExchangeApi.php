@@ -3,7 +3,7 @@
 namespace DataExchange\Laravel\SIFUK20;
 
 use DataExchange\SIFUK20\Configuration;
-use DataExchange\SIFUK20\DataExchangeApiConnection as Connection;
+use DataExchange\Laravel\SIFUK20\DataExchangeApiConnection as Connection;
 
 class DataExchangeApi
 {
