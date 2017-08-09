@@ -3,7 +3,7 @@
 namespace DataExchange\Laravel\SIFUK20;
 
 use DataExchange\SIFUK20\Configuration;
-use DataExchange\SIFUK20\DataExchangeApi as DXApi;
+use DataExchange\SIFUK20\DataExchangeApi;
 use Exception;
 
 class DataExchangeApiConnection
@@ -31,7 +31,7 @@ class DataExchangeApiConnection
         Configuration::getDefaultConfiguration()->setApiKey('Authorization', $config['token']);
         Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
-        $this->api = new DXApi();
+        $this->api = new DataExchangeApi();
 
         if ($config['url']) {
             $client = $this->api->getApiClient();
