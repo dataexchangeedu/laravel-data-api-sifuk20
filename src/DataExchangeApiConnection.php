@@ -28,14 +28,13 @@ class DataExchangeApiConnection
             'token' => config('dataexchange-data-api.default.token'),
         ], config("dataexchange-data-api.connections.{$connection}", []));
 
-        Configuration::getDefaultConfiguration()->setApiKey('Authorization', $config['token']);
-        Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
         $this->api = new DataExchangeApi();
-
+        $apiConfig = $this->api->getConfig();
+        $apiConfig->setApiKey('Authorization', $config['token']);
+        $apiConfig->setApiKeyPrefix('Authorization', 'Bearer');
+        $apiConfig->setUserAgent($apiConfig->getUserAgent() . '/Laravel');
         if ($config['url']) {
-            $client = $this->api->getApiClient();
-            $client->getConfig()->setHost($config['url']);
+            $apiConfig->setHost($config['url']);
         }
 
         $this->zoneId = $config['zone_id'];

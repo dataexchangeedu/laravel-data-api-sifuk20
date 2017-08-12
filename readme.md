@@ -68,3 +68,27 @@ DataExchangeApi provides a simple Laravel wrapper (facade) around the dataexchan
     - `DataExchangeApi::on('default')->getSchoolInfos(); // Explicitly use the default connection`
     - `DataExchangeApi::on('school')->getSchoolInfos(); // Explicitly use the school connection`
     - `DataExchangeApi::getApiInstance()->getSchoolInfos('ZONEID'); // Talk directly using the wrapped API`
+
+
+# Debugging
+
+If you need to see a bit more of what the underlying API is doing add the following code to an appropriate place in `DataExchange\SIFUK20\ApiClient@callApi`. This will enable you to use Fiddler on your host machine and see what the messages look like:
+
+```php
+curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
+curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
+curl_setopt($curl, CURLOPT_HTTPPROXYTUNNEL, 1);
+curl_setopt($curl, CURLOPT_PROXY, 'http://10.0.2.2:8888');
+```
+
+Or if it's guzzle based add the following to the send calls:
+
+```php
+[
+    'proxy' => [
+        'http'  => 'http://10.0.2.2:8888',
+        'https' => 'https://10.0.2.2:8888',
+    ],
+    'verify' => false,
+]
+```
