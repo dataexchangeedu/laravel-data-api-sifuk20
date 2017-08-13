@@ -5,6 +5,7 @@ namespace DataExchange\Laravel\SIFUK20;
 use DataExchange\SIFUK20\Configuration;
 use DataExchange\SIFUK20\Api\DataExchangeApi;
 use Exception;
+use Log;
 
 class DataExchangeApiConnection
 {
@@ -36,8 +37,32 @@ class DataExchangeApiConnection
         if ($config['url']) {
             $apiConfig->setHost($config['url']);
         }
+        $apiConfig->setDebug(config('dataexchange-data-api.debug'));
+
+        if($apiConfig->getDebug()) {
+            Log::info($this->getDebugReport());
+        }
 
         $this->zoneId = $config['zone_id'];
+    }
+
+    public function getDebugReport()
+    {
+        $apiConfig = $this->api->getConfig();
+
+        // Prevent the whole API key from ending up int he log...
+        $auth = $apiConfig->getApiKeyWithPrefix('Authorization');
+        $len = strlen($auth);
+        $show = strpos($auth, ' ') + 5;
+        $auth = str_pad(substr_replace($auth, '*', $show), $len, '*');
+
+        $report = $apiConfig->toDebugReport();
+        $report .= '    Headers:' . PHP_EOL;
+        $report .= '        Authorization' . $auth . PHP_EOL;
+        $report .= '        User-Agent: ' . $apiConfig->getUserAgent() . PHP_EOL;
+        $report .= '        Host' . $apiConfig->getHost() . PHP_EOL;
+
+        return $report;
     }
 
     public function getApiInstance()
