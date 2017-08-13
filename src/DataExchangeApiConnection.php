@@ -60,7 +60,7 @@ class DataExchangeApiConnection
         $report .= '    Headers:' . PHP_EOL;
         $report .= '        Authorization' . $auth . PHP_EOL;
         $report .= '        User-Agent: ' . $apiConfig->getUserAgent() . PHP_EOL;
-        $report .= '        Host' . $apiConfig->getHost() . PHP_EOL;
+        $report .= '        Host: ' . $apiConfig->getHost() . PHP_EOL;
 
         return $report;
     }
